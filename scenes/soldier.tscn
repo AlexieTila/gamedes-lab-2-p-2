@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cr3rolk764uhj"]
+
+[ext_resource type="Texture2D" uid="uid://di38wnt34u3xv" path="res://assets/sprites/Characters/Soldier/Soldier/Soldier-Idle.png" id="1_3ekc7"]
+[ext_resource type="Script" uid="uid://c2i8t5hhjt1v0" path="res://scripts/soldier.gd" id="1_q2rr1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2rr1"]
+atlas = ExtResource("1_3ekc7")
+region = Rect2(33, 33, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oslh"]
+atlas = ExtResource("1_3ekc7")
+region = Rect2(132, 33, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x21nm"]
+atlas = ExtResource("1_3ekc7")
+region = Rect2(231, 33, 33, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_53l18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2rr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oslh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x21nm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53l18"]
+radius = 4.0
+height = 12.0
+
+[node name="Soldier" type="CharacterBody2D" unique_id=74087006]
+collision_mask = 2
+script = ExtResource("1_q2rr1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1780424596]
+sprite_frames = SubResource("SpriteFrames_53l18")
+autoplay = "default"
+frame_progress = 0.43736884
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1784275732]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_53l18")
